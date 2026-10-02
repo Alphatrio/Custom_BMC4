@@ -1,0 +1,14 @@
+{
+    "dimensions": ["blue_skies:everbright", "blue_skies:everdawn"],
+    "min_rarity": "apotheosis:rare",
+    "max_rarity": "apotheosis:epic",
+    "weight": 70,
+    "quality": 5.0,
+    "stack": {
+        "item": "minecraft:diamond_leggings",
+        "count": 1,
+        "nbt": {
+            "Damage": 0
+        }
+    }
+}

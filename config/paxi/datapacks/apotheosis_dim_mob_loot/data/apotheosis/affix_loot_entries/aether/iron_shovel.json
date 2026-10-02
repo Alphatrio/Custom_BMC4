@@ -1,0 +1,14 @@
+{
+    "dimensions": ["aether:the_aether"],
+    "min_rarity": "apotheosis:uncommon",
+    "max_rarity": "apotheosis:epic",
+    "weight": 85,
+    "quality": 4.0,
+    "stack": {
+        "item": "minecraft:iron_shovel",
+        "count": 1,
+        "nbt": {
+            "Damage": 0
+        }
+    }
+}

@@ -1,0 +1,84 @@
+[
+  {
+    "mob": "minecraft:ender_dragon",
+    "when": "onjoin",
+    "result": "default",
+    "healthmultiply": 5.9,
+    "armoradd": 16,
+    "armortoughnessadd": 20,
+    "damageadd": 5
+  },
+  {
+    "mob": "minecraft:wither",
+    "when": "finalize",
+    "result": "default",
+    "healthmultiply": 3,
+    "armoradd": 12,
+    "armortoughnessadd": 10,
+    "damageadd": 3.5
+  },
+  {
+    "mob": "minecraft:elder_guardian",
+    "when": "finalize",
+    "result": "default",
+    "healthmultiply": 1.25,
+    "armoradd": 8,
+    "damageadd": 2
+  },
+  {
+    "mob": [
+      "cataclysm:the_harbinger",
+      "cataclysm:the_leviathan",
+      "cataclysm:ancient_remnant",
+      "cataclysm:maledictus",
+      "cataclysm:scylla",
+      "mowziesmobs:frostmaw",
+      "mowziesmobs:umvuthi",
+      "mowziesmobs:ferrous_wroughtnaut",
+      "mowziesmobs:sculptor"
+    ],
+    "dimension": "minecraft:overworld",
+    "when": "finalize",
+    "result": "default",
+    "armoradd": 4,
+    "damageadd": 1
+  },
+  {
+    "hostile": true,
+    "dimension": "aether:the_aether",
+    "when": "finalize",
+    "result": "default",
+    "armoradd": 8,
+    "healthmultiply": 1.25,
+    "damageadd": 2
+  },
+  {
+    "hostile": true,
+    "dimension": ["minecraft:the_nether", "twilightforest:twilight_forest"],
+    "when": "finalize",
+    "result": "default",
+    "armoradd": 8,
+    "healthmultiply": 1.25,
+    "damageadd": 2
+  },
+  {
+    "hostile": true,
+    "dimension": ["blue_skies:everbright", "blue_skies:everdawn"],
+    "when": "finalize",
+    "result": "default",
+    "armoradd": 12,
+    "armortoughnessadd": 10,
+    "healthmultiply": 3,
+    "damageadd": 3.5
+  },
+  {
+    "hostile": true,
+    "dimension": ["minecraft:the_end", "deeperdarker:otherside"],
+    "when": "finalize",
+    "result": "default",
+    "armoradd": 16,
+    "armortoughnessadd": 20,
+    "healthmultiply": 5.9,
+    "damageadd": 5
+  }
+]

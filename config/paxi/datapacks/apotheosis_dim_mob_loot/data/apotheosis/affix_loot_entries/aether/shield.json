@@ -1,0 +1,10 @@
+{
+	"weight": 100,
+	"quality": 2.5,
+	"stack": {
+		"item": "minecraft:shield"
+	},
+	"min_rarity": "apotheosis:uncommon",
+	"max_rarity": "apotheosis:epic",
+	"dimensions": ["aether:the_aether"]
+}

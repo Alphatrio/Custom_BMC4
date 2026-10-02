@@ -1,0 +1,170 @@
+Better MC [FORGE] BMC4 custom
+Changements faits pour Apotheosis
+Instance Minecraft 1.20.1, Forge 47.4.20
+
+Un redémarrage du jeu est nécessaire pour les configs et le datapack.
+En jeu, /incontrol reload recharge les stats des mobs.
+Les coffres déjà générés ne changent pas. Seuls les nouveaux chunks prennent le loot.
+Les mobs déjà présents gardent leurs anciennes stats. Seuls les nouveaux apparus prennent le bonus.
+
+
+1. Mods désactivés
+Fichiers renommés en .jar.disabled, et isEnabled = false dans minecraftinstance.json.
+
+- Easy Anvils
+- Easy Magic
+- Easy Disenchanting
+- Spawners+
+
+PuzzlesLib est gardé. D'autres mods Fuzss en ont besoin.
+DragonLoot n'a pas été touché. Les écailles de l'Ender Dragon restent au taux du mod.
+
+
+2. Invaders Apotheosis désactivés
+Fichier : config/apotheosis/adventure.cfg
+Chance de spawn à 0 dans les quatre dimensions :
+
+- minecraft:overworld
+- minecraft:the_nether
+- minecraft:the_end
+- twilightforest:twilight_forest
+
+
+3. Raretés Apotheosis par dimension
+Fichier : config/apotheosis/adventure.cfg
+Les deux listes ont les mêmes lignes : Affix Convert Rarities et Gem Dimensional Rarities.
+Les gemmes qui tombent sur un monstre tué par le joueur suivent la même courbe.
+
+- Overworld : common à rare
+- Aether : uncommon à epic
+- Nether : uncommon à epic
+- Twilight Forest : uncommon à epic
+- Blue Skies, Everbright et Everdawn : rare à epic
+- Otherside : rare à mythic
+- End : rare à mythic
+
+Les coffres et la conversion d'objets gardent les chances d'origine :
+- minecraft:chests.* : 35 %
+- .*chests.* : 30 %
+- twilightforest:structures.* : 30 %
+- conversion générale .* : 35 %
+- gemmes dans les coffres : 25 % / 20 % / 20 %
+
+Chance d'affixe sur un monstre : 7,5 % (inchangé).
+Chance de gemme au kill : 4,5 %, plus 33 % sur un boss (inchangé).
+La rareté ancient a un poids de 0. Elle ne sort pas dans un coffre normal.
+
+
+4. Stuff affixé porté par les monstres
+Datapack Paxi : config/paxi/datapacks/apotheosis_dim_mob_loot/
+Les tables déjà fournies par Apotheosis pour l'Overworld, le Nether, l'End et la Twilight Forest n'ont pas été dupliquées.
+
+- Aether : équipement fer, arc, arbalète, bouclier, trident. Rareté uncommon à epic.
+- Blue Skies : équipement diamant, arc, arbalète, bouclier, trident. Rareté rare à epic.
+- Otherside : mêmes entrées que l'End, y compris la netherite. Rareté rare à mythic.
+
+
+5. Difficulté des monstres hostiles
+Fichier : config/incontrol/spawn.json
+Calqué sur les bonus de monstres des World Tiers d'Apotheosis 1.21.
+L'Overworld n'a pas de règle : c'est le palier Haven, aucun bonus.
+
+In Control ne peut pas copier la perforation d'armure, la perforation de protection, ni la réduction de dégâts. Ces stats manquantes sont compensées par de la vie en plus. La robustesse ajoutée ne change presque rien avec la formule d'armure de ce pack.
+
+- Aether, Nether et Twilight Forest, palier Ascent : +8 d'armure, vie x1,25, +2 de dégâts
+- Blue Skies, palier Summit : +12 d'armure, +10 de robustesse, vie x3, +3,5 de dégâts
+- End et Otherside, palier Pinnacle : +16 d'armure, +20 de robustesse, vie x5,9, +5 de dégâts
+
+Les dégâts suivent les ajouts fixes, pas le multiplicateur de vie. +1 de dégâts pour chaque +4 d'armure, +0,5 pour chaque +10 de robustesse. La vie en plus remplace déjà la perforation, elle n'est pas recopiée sur les dégâts. L'Overworld ne gagne rien. Un zombie de base tape 3 : il tape 5 dans l'Aether, le Nether et la Twilight, 6,5 dans Blue Skies, 8 dans l'End.
+
+La vie en plus vient de la formule d'armure du pack, sur un coup normal.
+- Aether, Nether et Twilight : x1,25, calculé contre une armure en fer
+- Blue Skies : x3, calculé contre un diamant Protection III, avec perforation, perforation de protection et 10 % de réduction
+- End et Otherside : x5,9, calculé contre une netherite Protection IV, avec perforation, perforation de protection et 15 % de réduction
+
+Les boss de mods qui sont dans ces dimensions prennent aussi ce palier. Ils n'ont pas été sortis de la règle. Liste plus bas.
+
+
+6. Boss vanilla
+Même fichier. Ils ne passaient pas dans la règle des dimensions, donc ils ont une règle à part.
+
+- Elder Guardian : vie x1,25, +8 d'armure, +2 de dégâts. Palier du Nether. 80 de vie deviennent 100.
+- Wither : vie x3, +12 d'armure, +10 de robustesse, +3,5 de dégâts. Palier de Blue Skies. 300 de vie deviennent 900, armure de base 4 plus 12.
+- Dragon de l'End : vie x5,9, +16 d'armure, +20 de robustesse, +5 de dégâts. Palier de l'End. 200 de vie deviennent 1180. Le +5 passe par l'attribut de dégâts d'attaque. Le souffle du dragon a ses propres dégâts.
+- Warden : pas touché. Il a déjà 500 de vie et 30 d'armure.
+
+
+7. Boss d'Overworld
+Même fichier. +4 d'armure, +1 de dégâts, pas de vie en plus.
+Uniquement dans minecraft:overworld.
+
+Cataclysm :
+- the_harbinger
+- the_leviathan
+- ancient_remnant
+- maledictus
+- scylla
+
+Mowzie's Mobs :
+- frostmaw
+- umvuthi
+- ferrous_wroughtnaut
+- sculptor
+
+
+8. Boss de mods qui prennent le palier de leur dimension
+Pas de règle à part. Ils sont compris dans "hostile" de leur dimension.
+
+Aether, vie x1,25, +8 d'armure, +2 de dégâts :
+- aether:slider
+- aether:valkyrie_queen
+- aether:sun_spirit
+
+Nether, vie x1,25, +8 d'armure, +2 de dégâts :
+- cataclysm:ignis
+- cataclysm:netherite_monstrosity
+- alexsmobs:warped_mosco
+
+Twilight Forest, même palier que le Nether (+2 de dégâts) :
+- twilightforest:naga
+- twilightforest:lich
+- twilightforest:minoshroom
+- twilightforest:hydra
+- twilightforest:ur_ghast
+- twilightforest:knight_phantom
+- twilightforest:alpha_yeti
+- twilightforest:snow_queen
+
+Blue Skies, vie x3, +12 d'armure, +10 de robustesse, +3,5 de dégâts :
+- blue_skies:summoner
+- blue_skies:alchemist
+- blue_skies:arachnarch
+- blue_skies:starlit_crusher
+
+End, vie x5,9, +16 d'armure, +20 de robustesse, +5 de dégâts :
+- cataclysm:ender_guardian
+- alexsmobs:void_worm
+
+L'Ender Guardian et la Netherite Monstrosity ont déjà un plafond de dégâts par coup dans cataclysm.toml (22). Ignis est à 20. Ce plafond reste celui du mod.
+
+
+9. Oeufs Dragon Mounts
+Fichier : config/dragonmounts-common.toml
+Les chances de coffre ont été divisées par 3. L'oeuf de l'End n'est pas dans cette table.
+
+- Donjon simple, oeuf aether : 0,05
+- Pyramide du désert, oeuf feu : 0,025
+- Temple de la jungle, oeuf forêt : 0,1
+- Manoir, oeuf fantôme : 0,0667
+- Mine abandonnée, oeuf fantôme : 0,0317
+- Igloo, oeuf glace : 0,0667
+- Bastion, oeuf nether : 0,1167
+- Trésor enfoui, oeuf eau : 0,0583
+
+
+10. Ce qui n'a pas été changé
+- Modules Apotheosis : tous laissés allumés
+- Génération des donjons et spawners Apotheosis : toujours limitée à l'Overworld
+- Écailles DragonLoot
+- PuzzlesLib
+- Boss d'Overworld de Cataclysm autres que les cinq listés (Kobolediator, Wadjet, Aptrgangr, Clawdian, etc.)
